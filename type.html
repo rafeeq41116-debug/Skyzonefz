@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Services - Professional Solutions</title>
+    <link rel="icon" type="logo.png" href="logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Funnel Display', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #59E6FF 50%, #90c4ff 100%);
+            min-height: 100vh;
+            color: #112A46;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .main-title {
+            font-size: 4.2rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #112A46, #59E6FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(17, 42, 70, 0.3);
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            color: #112A46;
+            font-weight: 400;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: #ffffff;
+            border-radius: 25px;
+            padding: 45px;
+            box-shadow: 0 15px 35px rgba(17, 42, 70, 0.15);
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-card:nth-child(4) { animation-delay: 0.8s; }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #59E6FF 0%, #112A46 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(89, 230, 255, 0.3);
+            border-color: #59E6FF;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Service Header */
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #59E6FF 0%, #112A46 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 2.2rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 0 10px 25px rgba(89, 230, 255, 0.4);
+        }
+
+        .service-title {
+            font-size: 2.4rem;
+            color: #112A46;
+            font-weight: 700;
+            flex: 1;
+            letter-spacing: -1px;
+        }
+
+        /* Service Content */
+        .service-intro {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .service-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .service-benefits {
+            margin-bottom: 30px;
+        }
+
+        .benefits-title {
+            font-size: 1.4rem;
+            color: #112A46;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: #59E6FF;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Service Features Grid */
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 22px;
+            background: linear-gradient(135deg, rgba(89, 230, 255, 0.1) 0%, rgba(17, 42, 70, 0.05) 100%);
+            border-radius: 15px;
+            border-left: 4px solid #59E6FF;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            background: linear-gradient(135deg, rgba(89, 230, 255, 0.2) 0%, rgba(17, 42, 70, 0.1) 100%);
+            box-shadow: 0 5px 15px rgba(89, 230, 255, 0.2);
+        }
+
+        .feature-icon {
+            width: 28px;
+            height: 28px;
+            background: #59E6FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            color: #112A46;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.502) 0%, rgba(89, 230, 255, 0.244) 100%);
+            border-radius: 25px;
+            padding: 50px;
+            margin: 60px 0;
+            border: 2px solid rgba(89, 230, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .process-title {
+            font-size: 2.8rem;
+            color: #112A46;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #59E6FF, #112A46);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.6rem;
+            color: #112A46;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 30px 25px;
+            }
+            
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .service-card {
+                padding: 25px 20px;
+            }
+        }
+        .closeBtn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #112A46, hsl(189, 95%, 68%));
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 20px rgba(25, 53, 56, 0.682);
+            cursor: pointer;
+            z-index: 1000;
+            font-family: 'Funnel Display', sans-serif;
+        }
+
+        .back-home-btn:hover {
+            background: #59E6FF;
+            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(89, 230, 255, 0.4);
+        }
+
+        .back-home-btn::before {
+            content: "←";
+            font-size: 1.2rem;
+        }
+               /* WhatsApp Widget Styles */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-icon {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #112A46, hsl(189, 95%, 68%));
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .inquiry-panel {
+                width: calc(100vw - 40px);
+                right: 10px;
+                bottom: 90px;
+            }
+
+            .whatsapp-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        .inquiry-panel {
+            position: absolute;
+            bottom: 40px;
+            right: 0;
+            width: 420px;
+            height: 620px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: scale(0) translateY(20px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom right;
+            overflow: hidden;
+        }
+
+        .inquiry-panel.active {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        .panel-header {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .panel-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .panel-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .inquiry-options {
+            padding: 10px;
+        }
+
+        .inquiry-option {
+            display: flex;
+            align-items: center;
+            height: 80px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .inquiry-option:hover {
+            background: #e8f5e8;
+            border-color: #25D366;
+            transform: translateX(5px);
+        }
+
+        .inquiry-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .option-content h4 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .option-content p {
+            color: #666;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="main-title">Typing Services</h1>
+            <p class="subtitle">Professional typing and administrative support services tailored to meet your business and personal documentation needs</p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="services-grid">
+            <!-- Document Typing & Formatting -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📝</div>
+                    <h2 class="service-title">Document Typing & Formatting</h2>
+                </div>
+                <p class="service-intro">Transform your handwritten notes, audio recordings, and rough drafts into professionally formatted digital documents.</p>
+                
+                <p class="service-description">
+                    Our expert typists specialize in converting various types of source material into polished, professional documents. Whether you have handwritten manuscripts, audio recordings from meetings or interviews, or rough digital drafts that need refinement, we ensure every document meets the highest standards of accuracy and presentation.
+                </p>
+                
+                <p class="service-description">
+                    We work with all major document formats including Microsoft Word, Google Docs, and specialized formatting requirements. Our team is experienced in academic papers, business reports, legal documents, creative writing, and technical documentation. Every project includes comprehensive proofreading and quality assurance checks.
+                </p>
+
+                <div class="service-benefits">
+                    <h4 class="benefits-title">Key Benefits:</h4>
+                    <ul class="benefits-list">
+                        <li>99.9% accuracy guarantee with multiple quality checks</li>
+                        <li>Consistent formatting according to your style preferences</li>
+                        <li>Fast turnaround times without compromising quality</li>
+                        <li>Specialized formatting for academic, business, and legal documents</li>
+                        <li>Confidential handling of all sensitive materials</li>
+                    </ul>
+                </div>
+
+                <div class="service-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Microsoft Word & Excel Expertise</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Professional Document Formatting</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Fast 24-48 Hour Turnaround</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Comprehensive Proofreading</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Filling Assistance -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📋</div>
+                    <h2 class="service-title">Form Filling Assistance</h2>
+                </div>
+                <p class="service-intro">Professional form completion services for applications, surveys, registrations, and official documentation with guaranteed accuracy.</p>
+                
+                <p class="service-description">
+                    Navigate complex forms and applications with confidence through our professional form filling services. We handle everything from simple registration forms to complex government applications, insurance claims, visa applications, and business registration documents. Our experienced team understands the nuances of different form types and ensures all fields are completed accurately and completely.
+                </p>
+                
+                <p class="service-description">
+                    We maintain strict confidentiality protocols and use secure systems to protect your personal and business information. Our service includes thorough review processes to catch any errors or omissions before submission, potentially saving you time and preventing costly delays or rejections.
+                </p>
+
+                <div class="service-benefits">
+                    <h4 class="benefits-title">What We Handle:</h4>
+                    <ul class="benefits-list">
+                        <li>Government and official applications of all types</li>
+                        <li>Insurance claims and policy applications</li>
+                        <li>Business registration and licensing forms</li>
+                        <li>Survey responses and questionnaires</li>
+                        <li>Educational and employment applications</li>
+                    </ul>
+                </div>
+
+                <div class="service-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Online & Offline Form Processing</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">100% Data Entry Accuracy</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Secure & Confidential Handling</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Multiple Format Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administrative Documentation -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📊</div>
+                    <h2 class="service-title">Administrative Documentation</h2>
+                </div>
+                <p class="service-intro">Comprehensive administrative support including business reports, meeting minutes, correspondence, and organizational documentation.</p>
+                
+                <p class="service-description">
+                    Streamline your business operations with our comprehensive administrative documentation services. We specialize in creating professional business reports, detailed meeting minutes, formal correspondence, and organizational documents that reflect your company's professionalism and attention to detail.
+                </p>
+                
+                <p class="service-description">
+                    Our team understands the importance of clear, well-organized documentation in business environments. We create documents that not only look professional but also serve their functional purpose effectively. From board meeting minutes to quarterly reports, employee handbooks to policy documents, we ensure consistency in format, tone, and presentation across all your organizational materials.
+                </p>
+
+                <p class="service-description">
+                    We also provide ongoing administrative support for businesses that need regular documentation services. This includes monthly report compilation, routine correspondence management, and maintenance of important business records and databases.
+                </p>
+
+                <div class="service-benefits">
+                    <h4 class="benefits-title">Service Areas:</h4>
+                    <ul class="benefits-list">
+                        <li>Board meeting minutes and corporate documentation</li>
+                        <li>Business reports and financial summaries</li>
+                        <li>Employee handbooks and policy documentation</li>
+                        <li>Client correspondence and communication management</li>
+                        <li>Project documentation and progress reports</li>
+                    </ul>
+                </div>
+
+                <div class="service-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Business Reports & Presentations</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Meeting Minutes & Transcription</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Professional Correspondence</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Data Organization & Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Document Preparation -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">💻</div>
+                    <h2 class="service-title">Digital Document Preparation</h2>
+                </div>
+                <p class="service-intro">Modern digital solutions including PDF creation, template design, document conversion, and cloud-ready formatting for optimized workflows.</p>
+                
+                <p class="service-description">
+                    Embrace the digital age with our comprehensive digital document preparation services. We specialize in converting traditional documents into modern, digital formats that are optimized for online sharing, cloud storage, and mobile accessibility. Our services include creating interactive PDFs, designing custom templates, and ensuring all documents are optimized for various digital platforms.
+                </p>
+                
+                <p class="service-description">
+                    Whether you need to digitize existing paper documents, create fillable forms, or design templates for recurring use, our team has the technical expertise to deliver professional results. We work with the latest software and follow best practices for digital document creation, ensuring your files are compatible across different devices and platforms.
+                </p>
+
+                <p class="service-description">
+                    Our digital document services also include optimization for search engines, accessibility compliance for users with disabilities, and integration with popular business software systems. We help businesses transition smoothly into paperless operations while maintaining the highest standards of document quality and functionality.
+                </p>
+
+                <div class="service-benefits">
+                    <h4 class="benefits-title">Digital Solutions:</h4>
+                    <ul class="benefits-list">
+                        <li>Interactive and fillable PDF creation</li>
+                        <li>Custom template design for recurring documents</li>
+                        <li>Document digitization and scanning services</li>
+                        <li>Cloud integration and storage optimization</li>
+                        <li>Mobile-friendly document formatting</li>
+                    </ul>
+                </div>
+
+                <div class="service-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">PDF Creation & Editing Services</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Custom Template Design</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Digital Format Conversion</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span class="feature-text">Cloud-Ready Document Formats</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Section -->
+        <div class="process-section">
+            <h2 class="process-title">Our Working Process</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Initial Consultation</h3>
+                    <p>We discuss your specific needs, project requirements, timeline, and formatting preferences to ensure we deliver exactly what you need.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Document Analysis</h3>
+                    <p>Our team reviews your source materials and creates a detailed plan for processing, including quality checkpoints and delivery milestones.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>Professional Processing</h3>
+                    <p>Experienced typists and document specialists work on your project using industry-standard tools and following your specified guidelines.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Every document undergoes thorough review and proofreading to ensure accuracy, consistency, and adherence to your requirements.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">5</div>
+                    <h3>Final Delivery</h3>
+                    <p>Completed documents are delivered in your preferred format with backup copies and any additional materials you requested.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">6</div>
+                    <h3>Follow-up Support</h3>
+                    <p>We provide ongoing support for any revisions, questions, or additional services you may need after project completion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+          <div class="backdrop" id="backdrop"></div>
+     <div class="whatsapp-widget">
+        <div class="whatsapp-icon" id="whatsappIcon">
+            <svg viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.530 3.687"/>
+            </svg>
+        </div>
+
+        <div class="inquiry-panel" id="inquiryPanel">
+            <button class="close-btn" id="closeBtn">×</button>
+            <div class="panel-header">
+                <h3>How can we help you?</h3>
+                <p>Choose your inquiry type</p>
+            </div>
+            
+            <div class="inquiry-options">
+                <div class="inquiry-option" data-message="Hi! I'm need information on employment visas. Can you provide more details?">
+                    <div class="option-icon">💼</div>
+                    <div class="option-content">
+                        <h4>Employment Visa</h4>
+                        <p>Hassle-free employment visa processing</p>
+                    </div>
+                </div>
+
+                <div class="inquiry-option" data-message="Hello! I need information on Family Visas. Please assist.">
+                    <div class="option-icon">👨‍👩‍👧‍👦</div>
+                    <div class="option-content">
+                        <h4>Family Visa</h4>
+                        <p>Easy solutions to unite your family.</p>
+                    </div>
+                </div>
+
+                <div class="inquiry-option" data-message="Hi there! I'm looking for UAE Tourist visas. Can you provide more details?">
+                    <div class="option-icon">✈️</div>
+                    <div class="option-content">
+                        <h4>Tourist Visa</h4>
+                        <p>Travel made easy with fast visas</p>
+                    </div>
+                </div>
+
+                <div class="inquiry-option" data-message="Good day! I need help with Immigration Services. Can you help me?">
+                    <div class="option-icon">📝</div>
+                    <div class="option-content">
+                        <h4>Immigration Services</h4>
+                        <p>Seamless immigration, simplified</p>
+                    </div>
+                </div>
+
+                <div class="inquiry-option" data-message="Hi! I need information on other visa services.Can you help me?">
+                    <div class="option-icon">🔍</div>
+                    <div class="option-content">
+                        <h4>Other Services</h4>
+                        <p>Other Visa Related Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Add interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Staggered animation for service cards
+            const cards = document.querySelectorAll('.service-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add click animations for feature items
+            const featureItems = document.querySelectorAll('.feature-item');
+            featureItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateX(10px) scale(1)';
+                    }, 150);
+                });
+            });
+
+            // Parallax effect for floating elements
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const floatingElements = document.querySelectorAll('.floating-element');
+                
+                floatingElements.forEach((element, index) => {
+                    const speed = 0.1 + (index * 0.05);
+                    const yPos = scrolled * speed;
+                    element.style.transform = `translateY(${yPos}px) rotate(${yPos * 0.1}deg)`;
+                });
+            });
+        });
+
+        // Add smooth hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+                
+                // Add ripple effect
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(89, 230, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = '50%';
+                ripple.style.top = '50%';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.marginLeft = '-10px';
+                ripple.style.marginTop = '-10px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        const whatsappIcon = document.getElementById('whatsappIcon');
+        const inquiryPanel = document.getElementById('inquiryPanel');
+        const closeBtn = document.getElementById('closeBtn');
+        const backdrop = document.getElementById('backdrop');
+        const inquiryOptions = document.querySelectorAll('.inquiry-option');
+
+        // Your WhatsApp number (replace with actual number)
+        const whatsappNumber = '+971555746898'; // Replace with your actual WhatsApp number
+
+        function togglePanel() {
+            const isActive = inquiryPanel.classList.contains('active');
+            
+            if (isActive) {
+                inquiryPanel.classList.remove('active');
+                backdrop.classList.remove('active');
+            } else {
+                inquiryPanel.classList.add('active');
+                backdrop.classList.add('active');
+            }
+        }
+
+        function closePanel() {
+            inquiryPanel.classList.remove('active');
+            backdrop.classList.remove('active');
+        }
+
+        function openWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+            closePanel();
+        }
+
+        // Event listeners
+        whatsappIcon.addEventListener('click', togglePanel);
+        closeBtn.addEventListener('click', closePanel);
+        backdrop.addEventListener('click', closePanel);
+
+        // Handle inquiry option clicks
+        inquiryOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const message = option.getAttribute('data-message');
+                openWhatsApp(message);
+            });
+        });
+
+        // Close panel on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePanel();
+            }
+        });
+
+        // Close panel when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!whatsappIcon.contains(e.target) && !inquiryPanel.contains(e.target)) {
+                closePanel();
+            }
+        });
+    </script>
+    <div class="service-details-container">
+            <button onclick="location.href='index.html'" class="closeBtn">← Back to Home</button>
+        </div>
+</body>
+</html>
