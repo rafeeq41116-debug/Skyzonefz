@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact us | Sky Zone Solutions</title>
+    <meta name="description" content="Expert document clearing, business licensing, visa processing, and travel services in UAE. Sky Zone Solutions provides professional PRO services with 100% success rate and fast processing.">
+    <meta name="keywords" content="document clearing UAE, business license Dubai, visa processing, PRO services, company registration, travel services, certificate attestation">
+    <link rel="icon" type="logo.png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Funnel Display', sans-serif;
+    background: linear-gradient(135deg, #eefcff 0%, #d9f9ff 100%);
+    color: #112A46;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navbar {
+    position: fixed;
+    top: 5px;
+    left: 15%;
+    right: 15%;
+    z-index: 1000;
+    background: rgba(174, 231, 241, 0);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(89, 230, 255, 0);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #112A46;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo i {
+    color: #59E6FF;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #112A46;
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #59E6FF;
+    transform: translateY(-2px);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #59E6FF;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 1.5rem;
+    color: #112A46;
+    cursor: pointer;
+    z-index: 1000;
+    margin-left: auto;
+}
+
+/* Home Section */
+        .homes-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #d1f8ff 0%, #e2faff 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: left;
+            text-align: left;
+            padding: 9rem;
+            position: relative;
+            padding-left: 5rem;
+        }
+
+        .tagline {
+            font-size: clamp(2.5rem, 6vw, 3rem);
+            font-weight: 800;
+            color: #1773a4;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .quote {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: #061315;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 50%;
+        }
+
+        .scroll-arrow {
+            width: 40px;
+            height: 80px;
+            margin-left: 30%;
+            margin-top: 15%;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            display: flex;
+            bottom: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scroll-arrow::before {
+            content: '⤵';
+            position: absolute;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #000000, #112A46, #000000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s linear infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .service-image {
+        position: absolute;
+        bottom: 20%;
+        right: 0;
+        height: 70%;
+        opacity: 1;
+        transition: all 0.3s ease; 
+        animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        @media (min-width: 1024px) {
+            .service-image {
+                height: 70%;
+                right: 0;
+                transition: all 0.5s ease;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 1023px) and (min-width: 769px) {
+            .tagline {
+                font-size: 2.5rem;
+            }
+            
+            .quote {
+                max-width: 70%;
+                font-size: 1.1rem;
+            }
+            
+            .service-image {
+                height: 40%;
+                right: -5%;
+            }
+        }
+
+        /* Mobile Large (768px and below) */
+        @media (max-width: 768px) {
+            .homes-section {
+                text-align: left;
+                align-items: left;
+                padding: 0 10px;
+                padding-top: 7rem;
+            }
+            
+            .tagline {
+                font-size: 2.5rem;
+                text-align: left;
+                margin-left: 5%;
+            }
+            
+            .quote {
+                max-width: 90%;
+                font-size: 1.5rem;
+                text-align: left;
+                margin-left: 5%;
+            }
+            
+            .service-image {
+                display: none;
+            }
+        }
+
+        /* Mobile Medium (480px and below) */
+        @media (max-width: 480px) {
+            .tagline {
+                font-size: 1.5rem;
+            }
+            
+            .quote {
+                font-size: 0.9rem;
+                max-width: 95%;
+            }
+            
+            .service-image {
+                display: none;
+            }
+        }
+
+        /* Mobile Small (320px and below) */
+        @media (max-width: 320px) {
+            .service-image {
+                display: none;
+            }
+        }
+
+        /* Alternative: Hide image on very small screens */
+        
+        @media (max-width: 480px) {
+            .service-image {
+                display: none;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .service-image {
+                height: 60%;
+                right: 0;
+            }
+        }
+
+        /* ===== CONTACT SECTION ===== */
+.contact-container0 {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+        .contact-heading {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .contact-heading h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #112A46;
+            margin-bottom: 15px;
+        }
+
+        .contact-description {
+            font-size: 1.2rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .contact-section6{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(17, 42, 70, 0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #112A46;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-icon {
+            width: 24px;
+            height: 24px;
+            background: #112A46;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-icon::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .info-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #112A46;
+            margin-bottom: 5px;
+        }
+
+        .info-content p {
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #112A46;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: #112A46;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Funnel Display', sans-serif;
+            font-size: 1rem;
+            color: #112A46;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #112A46;
+            box-shadow: 0 0 0 3px rgba(17, 42, 70, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn0 {
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+            background: transparent;
+            border: 1px solid rgb(0, 0, 0);
+            color: rgb(15, 33, 54);
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            font-family: 'Funnel Display', sans-serif;
+            position: relative;
+            overflow: hidden;
+            left: 75%;
+        }
+
+        .submit-btn0:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #59E6FF 0%, #112A46 100%);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            border: none;
+            color: white;
+        }
+
+        .submit-btn0:active {
+            transform: scale(0.95);
+        }
+
+        .submit-btn0 i {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn0:hover i {
+            transform: translateX(2px);
+        }
+
+        .map-container {
+            width: 98%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(17, 42, 70, 0.2);
+            margin-left: 15px;
+        }
+    
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section6 {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 30px;
+            }
+
+            .contact-heading h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-description {
+                font-size: 1.1rem;
+            }
+        }
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #112A46;
+    color: white;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #72e0f4;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #87e2f0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #347580;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(89, 230, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-section:nth-child(1) { animation-delay: 0.1s; }
+.service-section:nth-child(2) { animation-delay: 0.2s; }
+.service-section:nth-child(3) { animation-delay: 0.3s; }
+.service-section:nth-child(4) { animation-delay: 0.4s; }
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 768px) {
+    .navbar1 {
+        left: 5%;
+        right: 5%;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(174, 231, 241, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 1rem;
+        box-shadow: 0 5px 20px rgba(89, 230, 255, 0.2);
+        border-radius: 0 0 10px 10px;
+        flex-direction: column;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .service-main-title {
+        font-size: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 2rem;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-title {
+        font-size: 2rem;
+        margin-left: 0;
+    }
+
+    .contact-title1 {
+        margin-left: 0;
+        font-size: 1.9rem;
+    }
+
+    .contact-buttons {
+        width: 100%;
+        max-width: 350px;
+        gap: 2rem;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .service-main-title {
+        font-size: 1.7rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .contact-title {
+        font-size: 1.6rem;
+    }
+
+    .contact-title1 {
+        font-size: 1.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="Sky Zone Solutions Logo" style="height: 40px; margin-right: 10px;">
+                Sky Zone Solutions
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="package.html">Packages</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+    <section class="homes-section" id="home">
+    <h1 class="tagline">Contact</h1>
+    <p class="quote">"We'd love to hear from you! Get in touch with us for any inquiries, support, or business opportunities. Our team is ready to assist you with all your needs."</p>
+    <div class="scroll-arrow" onclick="scrollToContact()">
+    </div>
+    <img src="contactimg.png" alt="Service Image" class="service-image">
+    </section>
+
+     <!-- Contact Section -->
+    <section class="contact-container0" id="contact">
+        <div class="contact-section6">
+            <!-- Left Side - Contact Information -->
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h3>Company Address</h3>
+                        <p>303B Business Center 04,<br>
+                         RAKEZ Ras Al Khaimah,<br>
+                        United Arab Emirates</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h3>Phone Number</h3>
+                        <p>+971 55 574 6898<br>
+                        +971 7 207 8012</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h3>Email Address</h3>
+                        <p>info@skyzonefz.com<br>
+                        abdu@skyzonefz.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"></div>
+                    <div class="info-content">
+                        <h3>Working Hours</h3>
+                        <p>Monday - Friday: 8:00 AM - 9:00 PM<br>
+                        Saturday: 9:00 AM - 2:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Contact Form -->
+            <div class="contact-form">
+                <h2>Send Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service *</label>
+                        <select id="service" name="service" required>
+                        <option value="">Select Service</option>
+                        <option value="document-clearing">Document Clearing</option>
+                        <option value="visa">Visa & Immigration </option>
+                        <option value="attestation">Attestation Services</option>
+                        <option value="freezone">Freezone Business</option>
+                        <option value="mainland">Mainland Business</option>
+                        <option value="license-renewal">License Renewal</option>
+                        <option value="business-consultation">Business Consultation</option>
+                        <option value="travel">Flight Booking</option>
+                        <option value="consultation">Hotel Booking</option>
+                        <option value="tourist-visa">Tourist Visa</option>
+                        <option value="other">Other Services</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message </label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn0">Send Message</button>
+                </form>
+            </div>
+        </div>
+        </div>
+        </main>
+        <!-- Location Map -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.08109957128!2d55.9683029!3d25.800898399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef67131f14a49b1%3A0xd3b5ffc06b24ab09!2sRas%20Al%20Khaimah%20Economic%20Zone%20-%20RAKEZ!5e0!3m2!1sen!2sae!4v1758119156615!5m2!1sen!2sae"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+    </section>
+
+     <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sky Zone Solutions FZ LLC</h3>
+                <p>Your trusted partner for professional document clearing, business licensing, visa processing, and travel services in the UAE with over 15 years of experience.</p>
+                <div class="social-icons">
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="package.html">Packages</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="service.html#document-clearing">Document Clearing</a></li>
+                    <li><a href="service.html#business">Business Consulting</a></li>
+                    <li><a href="service.html#travel">Travel & Tourism Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> RAKEZ Business Park, Ras Al Khaimah, UAE</li>
+                    <li><i class="fas fa-phone"></i> +971 7 207 8012</li>
+                    <li><i class="fas fa-envelope"></i> info@skyzonefz.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 9:00 PM</li>
+                    <li><i class="fas fa-globe"></i> www.skyzonefz.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sky Zone Solutions FZ-LLC. All rights reserved. | Professional Document Clearing & Business Services in UAE</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        // ===== SMOOTH SCROLLING FOR NAVIGATION LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar1');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(174, 231, 241, 0.9)';
+                    navbar.style.boxShadow = '0 5px 20px rgba(89, 230, 255, 0.3)';
+                } else {
+                    navbar.style.background = 'rgba(174, 231, 241, 0.452)';
+                    navbar.style.boxShadow = 'none';
+                }
+            }
+        });
+
+        // ===== MOBILE MENU TOGGLE =====
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        let isMenuOpen = false;
+
+        const toggleMobileMenu = () => {
+            isMenuOpen = !isMenuOpen;
+            
+            // Toggle menu icon
+            if (mobileMenu) {
+                mobileMenu.innerHTML = isMenuOpen ? 
+                    '<i class="fas fa-times"></i>' : 
+                    '<i class="fas fa-bars"></i>';
+            }
+            
+            // Toggle menu visibility
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+            }
+        };
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', toggleMobileMenu);
+        }
+
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service sections
+        document.querySelectorAll('.service-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ===== ENHANCED USER INTERACTIONS =====
+        
+        // Service card hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Contact button interactions
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Service button click tracking
+        document.querySelectorAll('.service-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Add loading states for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fade in content gradually
+            const sections = document.querySelectorAll('.service-section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                }, index * 100);
+            });
+        });
+
+        // Enhanced scroll behavior for better performance
+        let ticking = false;
+        
+        function updateScrollEffects() {
+            // Navbar scroll effect with throttling
+            const navbar = document.querySelector('.navbar1');
+            if (navbar && window.scrollY > 50) {
+                navbar.style.background = 'rgba(174, 231, 241, 0.9)';
+                navbar.style.boxShadow = '0 5px 20px rgba(89, 230, 255, 0.3)';
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        });
+        (function() {
+    // Create the ring element
+    const ring = document.createElement('div');
+    ring.style.position = 'fixed';
+    ring.style.pointerEvents = 'none';
+    ring.style.width = '40px';
+    ring.style.height = '40px';
+    ring.style.border = '1px solid #00bcd4';
+    ring.style.borderRadius = '50%';
+    ring.style.zIndex = '9999';
+    ring.style.transform = 'translate(-50%, -50%)';
+    ring.style.background = 'rgba(255, 255, 255, 0)';
+    
+    // Create center point
+    const centerPoint = document.createElement('div');
+    centerPoint.style.position = 'fixed';
+    centerPoint.style.pointerEvents = 'none';
+    centerPoint.style.width = '8px';
+    centerPoint.style.height = '8px';
+    centerPoint.style.backgroundColor = '#00bcd4';
+    centerPoint.style.borderRadius = '50%';
+    centerPoint.style.zIndex = '9999';
+    centerPoint.style.transform = 'translate(-50%, -50%)';
+    
+    document.body.appendChild(ring);
+    document.body.appendChild(centerPoint);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let centerX = mouseX;
+    let centerY = mouseY;
+    let velocityX = 0;
+    let velocityY = 0;
+    let isMoving = false;
+    let lastMouseX = mouseX;
+    let lastMouseY = mouseY;
+    
+    function animate() {
+        if (isMoving) {
+            // Add inertia to movement
+            velocityX = (mouseX - centerX) * 0.08;
+            velocityY = (mouseY - centerY) * 0.08;
+        } else {
+            // When mouse stops, move towards last position
+            velocityX = (lastMouseX - centerX) * 0.08;
+            velocityY = (lastMouseY - centerY) * 0.08;
+        }
+
+        // Apply velocity with damping
+        centerX += velocityX;
+        centerY += velocityY;
+        
+        // Update positions
+        ring.style.left = mouseX + 'px';
+        ring.style.top = mouseY + 'px';
+        centerPoint.style.left = centerX + 'px';
+        centerPoint.style.top = centerY + 'px';
+        
+        requestAnimationFrame(animate);
+    }
+
+    let moveTimeout;
+    document.addEventListener('mousemove', function(e) {
+        isMoving = true;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Clear existing timeout
+        clearTimeout(moveTimeout);
+        
+        // Set new timeout
+        moveTimeout = setTimeout(() => {
+            isMoving = false;
+            lastMouseX = mouseX;
+            lastMouseY = mouseY;
+        }, 100);
+    });
+
+    // Start animation loop
+    animate();
+})();  
+
+class OffersCarousel {
+    constructor() {
+        this.currentIndex = 0;
+        this.slides = document.querySelectorAll('.carousel-slide');
+        this.totalSlides = this.slides.length;
+        this.leftArrow = document.querySelector('.nav-arrow.left');
+        this.rightArrow = document.querySelector('.nav-arrow.right');
+        this.progressDots = document.querySelectorAll('.progress-dot');
+        this.autoTimer = null;
+        this.isAnimating = false;
+        this.isForward = true;
+
+        this.init();
+    }
+
+    init() {
+        // Set initial positions - first slide active, others to the right
+        this.slides.forEach((slide, index) => {
+            slide.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            if (index === 0) {
+                slide.classList.add('active');
+                slide.style.transform = 'translateX(0%)';
+            } else {
+                slide.style.transform = 'translateX(100%)';
+            }
+        });
+
+        // Add event listeners
+        this.leftArrow.addEventListener('click', () => this.previousSlide());
+        this.rightArrow.addEventListener('click', () => this.nextSlide());
+        
+        // Add click listeners to progress dots
+        this.progressDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.slideToIndex(index, this.getDirectionToIndex(index)));
+        });
+
+        // Update progress dots
+        this.updateProgressDots();
+
+        // Start auto-advance
+        this.startAutoAdvance();
+
+        // Pause auto-advance on hover
+        const carousel = document.querySelector('.offers-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => this.pauseAutoAdvance());
+            carousel.addEventListener('mouseleave', () => this.startAutoAdvance());
+        }
+    }
+
+    getDirectionToIndex(targetIndex) {
+        // For auto-advance and next button, always go forward
+        if (this.isForward || targetIndex === (this.currentIndex + 1) % this.totalSlides) {
+            return 1;
+        }
+        // For previous button
+        if (targetIndex === (this.currentIndex - 1 + this.totalSlides) % this.totalSlides) {
+            return -1;
+        }
+        // For dot clicks, choose shortest path
+        const forwardDistance = targetIndex > this.currentIndex ? 
+            targetIndex - this.currentIndex : 
+            (this.totalSlides - this.currentIndex) + targetIndex;
+        const backwardDistance = targetIndex < this.currentIndex ? 
+            this.currentIndex - targetIndex : 
+            this.currentIndex + (this.totalSlides - targetIndex);
+        
+        return forwardDistance <= backwardDistance ? 1 : -1;
+    }
+
+    nextSlide() {
+        if (this.isAnimating) return;
+        this.isForward = true;
+        const nextIndex = (this.currentIndex + 1) % this.totalSlides;
+        this.slideToIndex(nextIndex, 1);
+    }
+
+    previousSlide() {
+        if (this.isAnimating) return;
+        this.isForward = false;
+        const prevIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+        this.slideToIndex(prevIndex, -1);
+    }
+
+    slideToIndex(newIndex, direction) {
+        if (this.isAnimating || newIndex === this.currentIndex) return;
+
+        this.isAnimating = true;
+        
+        const currentSlide = this.slides[this.currentIndex];
+        const nextSlide = this.slides[newIndex];
+
+        // Temporarily disable transitions for instant positioning
+        nextSlide.style.transition = 'none';
+        
+        // Position next slide based on direction
+        if (direction === 1) {
+            // Moving forward - next slide starts from right
+            nextSlide.style.transform = 'translateX(100%)';
+        } else {
+            // Moving backward - next slide starts from left
+            nextSlide.style.transform = 'translateX(-100%)';
+        }
+
+        // Force reflow and re-enable transition
+        nextSlide.offsetHeight;
+        nextSlide.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+
+        // Start animation with small delay to ensure positioning is complete
+        requestAnimationFrame(() => {
+            // Move current slide out
+            if (direction === 1) {
+                currentSlide.style.transform = 'translateX(-100%)';
+            } else {
+                currentSlide.style.transform = 'translateX(100%)';
+            }
+            
+            // Move next slide in
+            nextSlide.style.transform = 'translateX(0%)';
+            
+            // Update active class immediately for next slide
+            nextSlide.classList.add('active');
+        });
+        // Clean up after animation completes
+        setTimeout(() => {
+            // Reset all slides except the current one
+            this.slides.forEach((slide, index) => {
+                if (index !== newIndex) {
+                    slide.style.transition = 'none';
+                    slide.style.transform = 'translateX(100%)';
+                    slide.classList.remove('active');
+                    // Re-enable transition after repositioning
+                    slide.offsetHeight;
+                    slide.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                }
+            });
+
+            this.currentIndex = newIndex;
+            this.updateProgressDots();
+            this.isAnimating = false;
+        }, 850);
+
+        // Restart auto-advance
+        this.restartAutoAdvance();
+    }
+
+    updateProgressDots() {
+        this.progressDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+
+    startAutoAdvance() {
+        this.pauseAutoAdvance();
+        this.isForward = true;
+        this.autoTimer = setInterval(() => {
+            if (!this.isAnimating) {
+                this.nextSlide();
+            }
+        }, 5000);
+    }
+
+    pauseAutoAdvance() {
+        if (this.autoTimer) {
+            clearInterval(this.autoTimer);
+            this.autoTimer = null;
+        }
+    }
+
+    restartAutoAdvance() {
+        this.startAutoAdvance();
+    }
+
+    // Method to destroy carousel (cleanup)
+    destroy() {
+        this.pauseAutoAdvance();
+        // Remove event listeners if needed
+        this.leftArrow.removeEventListener('click', () => this.previousSlide());
+        this.rightArrow.removeEventListener('click', () => this.nextSlide());
+    }
+}
+
+// Initialize carousel when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    new OffersCarousel();
+});
+ document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Hello! I'm contacting you through your website.
+            
+*Name:* ${name}
+*Email:* ${email}
+*Phone:* ${phone}
+*Service:* ${service}
+*Message:* ${message}
+            
+Thank you!`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // WhatsApp business number (replace with your actual WhatsApp number)
+            const whatsappNumber = '971501234567'; // Replace with your WhatsApp number
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Optional: Reset form after sending
+            // this.reset();
+        });
+
+    </script>
+</body>
+</html>
