@@ -447,88 +447,158 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-      // ===== MOUSE RING EFFECT =====
-(function() {
-    // Create the ring element
-    const ring = document.createElement('div');
-    ring.style.position = 'fixed';
-    ring.style.pointerEvents = 'none';
-    ring.style.width = '40px';
-    ring.style.height = '40px';
-    ring.style.border = '1px solid #00bcd4';
-    ring.style.borderRadius = '50%';
-    ring.style.zIndex = '9999';
-    ring.style.transform = 'translate(-50%, -50%)';
-    ring.style.background = 'rgba(255, 255, 255, 0)';
-    
-    // Create center point
-    const centerPoint = document.createElement('div');
-    centerPoint.style.position = 'fixed';
-    centerPoint.style.pointerEvents = 'none';
-    centerPoint.style.width = '8px';
-    centerPoint.style.height = '8px';
-    centerPoint.style.backgroundColor = '#00bcd4';
-    centerPoint.style.borderRadius = '50%';
-    centerPoint.style.zIndex = '9999';
-    centerPoint.style.transform = 'translate(-50%, -50%)';
-    
-    document.body.appendChild(ring);
-    document.body.appendChild(centerPoint);
+// ===== RESPONSIVE MOUSE/TOUCH RING EFFECT =====
+        (function() {
+            // Create the ring element
+            const ring = document.createElement('div');
+            ring.style.position = 'fixed';
+            ring.style.pointerEvents = 'none';
+            ring.style.width = '20px';
+            ring.style.height = '20px';
+            ring.style.border = '2px solid #00bcd4';
+            ring.style.borderRadius = '50%';
+            ring.style.zIndex = '9999';
+            ring.style.transform = 'translate(-50%, -50%)';
+            ring.style.background = 'rgba(255, 255, 255, 0)';
+            ring.style.transition = 'width 0.2s ease, height 0.2s ease, border-width 0.2s ease';
+            
+            // Create center point
+            const centerPoint = document.createElement('div');
+            centerPoint.style.position = 'fixed';
+            centerPoint.style.pointerEvents = 'none';
+            centerPoint.style.width = '6px';
+            centerPoint.style.height = '6px';
+            centerPoint.style.backgroundColor = '#00bcd4';
+            centerPoint.style.borderRadius = '50%';
+            centerPoint.style.zIndex = '9999';
+            centerPoint.style.transform = 'translate(-50%, -50%)';
+            centerPoint.style.boxShadow = '0 0 10px rgba(0, 188, 212, 0.6)';
+            
+            document.body.appendChild(ring);
+            document.body.appendChild(centerPoint);
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let centerX = mouseX;
-    let centerY = mouseY;
-    let velocityX = 0;
-    let velocityY = 0;
-    let isMoving = false;
-    let lastMouseX = mouseX;
-    let lastMouseY = mouseY;
-    
-    function animate() {
-        if (isMoving) {
-            // Add inertia to movement
-            velocityX = (mouseX - centerX) * 0.08;
-            velocityY = (mouseY - centerY) * 0.08;
-        } else {
-            // When mouse stops, move towards last position
-            velocityX = (lastMouseX - centerX) * 0.08;
-            velocityY = (lastMouseY - centerY) * 0.08;
-        }
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let centerX = mouseX;
+            let centerY = mouseY;
+            let velocityX = 0;
+            let velocityY = 0;
+            let isMoving = false;
+            let lastMouseX = mouseX;
+            let lastMouseY = mouseY;
+            let isTouching = false;
+            
+            function animate() {
+                if (isMoving || isTouching) {
+                    // Add inertia to movement
+                    velocityX = (mouseX - centerX) * 0.08;
+                    velocityY = (mouseY - centerY) * 0.08;
+                } else {
+                    // When mouse/touch stops, move towards last position
+                    velocityX = (lastMouseX - centerX) * 0.08;
+                    velocityY = (lastMouseY - centerY) * 0.08;
+                }
 
-        // Apply velocity with damping
-        centerX += velocityX;
-        centerY += velocityY;
-        
-        // Update positions
-        ring.style.left = mouseX + 'px';
-        ring.style.top = mouseY + 'px';
-        centerPoint.style.left = centerX + 'px';
-        centerPoint.style.top = centerY + 'px';
-        
-        requestAnimationFrame(animate);
-    }
+                // Apply velocity with damping
+                centerX += velocityX;
+                centerY += velocityY;
+                
+                // Update positions
+                ring.style.left = mouseX + 'px';
+                ring.style.top = mouseY + 'px';
+                centerPoint.style.left = centerX + 'px';
+                centerPoint.style.top = centerY + 'px';
+                
+                requestAnimationFrame(animate);
+            }
 
-    let moveTimeout;
-    document.addEventListener('mousemove', function(e) {
-        isMoving = true;
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // Clear existing timeout
-        clearTimeout(moveTimeout);
-        
-        // Set new timeout
-        moveTimeout = setTimeout(() => {
-            isMoving = false;
-            lastMouseX = mouseX;
-            lastMouseY = mouseY;
-        }, 100);
-    });
+            let moveTimeout;
+            
+            // Function to update cursor position
+            function updateCursor(clientX, clientY) {
+                mouseX = clientX;
+                mouseY = clientY;
+                
+                // Clear existing timeout
+                clearTimeout(moveTimeout);
+                
+                // Set new timeout
+                moveTimeout = setTimeout(() => {
+                    isMoving = false;
+                    isTouching = false;
+                    lastMouseX = mouseX;
+                    lastMouseY = mouseY;
+                    
+                    // Reset ring size after movement stops
+                    ring.style.width = '20px';
+                    ring.style.height = '20px';
+                    ring.style.borderWidth = '2px';
+                }, 100);
+            }
+            
+            // Mouse events for desktop
+            document.addEventListener('mousemove', function(e) {
+                isMoving = true;
+                updateCursor(e.clientX, e.clientY);
+            });
+            
+            // Touch events for mobile
+            document.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                isTouching = true;
+                isMoving = true;
+                const touch = e.touches[0];
+                updateCursor(touch.clientX, touch.clientY);
+                
+                // Make ring slightly larger on touch start
+                ring.style.width = '25px';
+                ring.style.height = '25px';
+                ring.style.borderWidth = '3px';
+            }, { passive: false });
+            
+            document.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                isTouching = true;
+                isMoving = true;
+                const touch = e.touches[0];
+                updateCursor(touch.clientX, touch.clientY);
+            }, { passive: false });
+            
+            document.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                isTouching = false;
+                isMoving = false;
+                
+                // Reset ring size
+                ring.style.width = '20px';
+                ring.style.height = '20px';
+                ring.style.borderWidth = '2px';
+                
+                // Set final position
+                setTimeout(() => {
+                    lastMouseX = mouseX;
+                    lastMouseY = mouseY;
+                }, 50);
+            }, { passive: false });
 
-    // Start animation loop
-    animate();
-})();  
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (!isMoving && !isTouching) {
+                    mouseX = window.innerWidth / 2;
+                    mouseY = window.innerHeight / 2;
+                    centerX = mouseX;
+                    centerY = mouseY;
+                }
+            });
+
+            // Start animation loop
+            animate();
+            
+            // Hide default cursor on desktop
+            if (!('ontouchstart' in window)) {
+                document.body.style.cursor = 'none';
+            }
+        })();
 
 class OffersCarousel {
     constructor() {
