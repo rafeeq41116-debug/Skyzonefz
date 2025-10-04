@@ -758,4 +758,34 @@ function scrollToServices() {
                 behavior: 'smooth'
             });
         }
+// ===== NEWS BOX TOGGLE FUNCTIONALITY =====
+document.addEventListener("DOMContentLoaded", function () {
+  const newsBox = document.getElementById("news-box");
+  const toggleBtn = document.getElementById("news-toggle-btn");
+
+  if (newsBox && toggleBtn) {
+    // Function to toggle the minimized state
+    const toggleNewsBox = () => {
+      newsBox.classList.toggle("minimized");
+      const icon = toggleBtn.querySelector("i");
+      // Change icon based on state
+      icon.className = newsBox.classList.contains("minimized")
+        ? "fas fa-plus"
+        : "fas fa-times";
+    };
+
+    // Event listener for the toggle button (X or +)
+    toggleBtn.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevents the click from bubbling up to the newsBox
+      toggleNewsBox();
+    });
+    // Event listener for the whole box when it's minimized
+    newsBox.addEventListener("click", () => {
+      if (newsBox.classList.contains("minimized")) {
+        toggleNewsBox();
+      }
+    });
+  }
+});
+
 
